@@ -1,4 +1,4 @@
-package com.diMedical
+package com.dimedical
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class DiMedicalApplication
 
 fun main(args: Array<String>) {
-	runApplication<DiMedicalApplication>(*args)
+    runApplication<DiMedicalApplication>(*args)
 }

@@ -1,4 +1,4 @@
-package com.diMedical
+package com.dimedical
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

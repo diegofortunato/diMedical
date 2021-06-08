@@ -174,7 +174,7 @@ GET: /exam?page=0&size=3&orderBy=id
 Saúde da API esta disponivel aqui:  [Actuator](http://localhost:8080/actuator/health)
 
 
-## [](https://github.com/diegofortunato/diMedical#documeta%C3%A7%C3%A3o-)Documetação  📝
+## [](https://github.com/diegofortunato/diMedical#documeta%C3%A7%C3%A3o-)Documentação  📝
 
 Você pode encontrar a documentação do projeto aqui: [Swagger-UI](http://localhost:8080/swagger-ui.html#/)
                                                     [Doc](https://github.com/diegofortunato/diMedical/blob/develop/swagger.yml)

@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "90048bdc-429e-4e0b-a2d2-d80a72828635",
+		"name": "DiMedical",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request\": {\r\n        \"nome\": \"Felipe Purchatti\",\r\n        \"data_nascimento\": \"2000-12-25\",\r\n        \"sexo\": \"MASCULINO\",\r\n        \"nome_mae\": \"Carla Cristina\",\r\n        \"endereco\": {\r\n            \"rua\": \"Rua Itapolis\",\r\n            \"numero\": 1325,\r\n            \"cep\": \"01245000\",\r\n            \"bairro\": \"Pacaembu\",\r\n            \"cidade\": \"Sao Paulo\",\r\n            \"estado\": \"SP\"\r\n        },\r\n        \"contato\": {\r\n            \"telefone\" : \"(19)9.9477-8827\",\r\n            \"email\": \"felipe@gmail.com\"\r\n        },\r\n        \"documento\": {\r\n            \"cpf\": \"45474132822\",\r\n            \"rg\": \"387963592\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/patient",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/patient/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request\": {\r\n        \"nome\": \"Diego Fortunato Candido\",\r\n        \"data_nascimento\": \"1996-07-30\",\r\n        \"sexo\": \"MASCULINO\",\r\n        \"nome_mae\": \"Carla Cristina\",\r\n        \"endereco\": {\r\n            \"rua\": \"Rua Itapolis\",\r\n            \"numero\": 1325,\r\n            \"cep\": \"01245000\",\r\n            \"bairro\": \"Pacaembu\",\r\n            \"cidade\": \"Sao Paulo\",\r\n            \"estado\": \"SP\"\r\n        },\r\n        \"contato\": {\r\n            \"telefone\" : \"(19)9.9477-8827\",\r\n            \"email\": \"diego.fcandido1996@gmail.com\"\r\n        },\r\n        \"documento\": {\r\n            \"cpf\": \"45474132824\",\r\n            \"rg\": \"387963595\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/patient/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patient",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Create Doctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request\": {\r\n        \"nome\": \"Isabelly Fortes\",\r\n        \"numero_conselho\": 1423432532,\r\n        \"estado_conselho\": \"SP\",\r\n        \"tipo_conselho\": \"CRM\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/doctor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Doctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctor/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/doctor/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request\": {\r\n        \"nome\": \"Isabelly Fortes da silva\",\r\n        \"numero_conselho\": 1423432532,\r\n        \"estado_conselho\": \"SP\",\r\n        \"tipo_conselho\": \"CRM\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/doctor/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctor",
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medical Request",
+			"item": [
+				{
+					"name": "New Medical Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request\":{\r\n        \"paciente_id\": 4,\r\n        \"medico(a)_id\": 14,\r\n        \"exames\": [\r\n            {\r\n                \"nome\": \"Exame de sangue\",\r\n                \"data_expiracao\": \"2021-07-10\"\r\n            },\r\n            {\r\n                \"nome\": \"Exame de urina\",\r\n                \"data_expiracao\": \"2021-07-11\"\r\n            },\r\n            {\r\n                \"nome\": \"Exame de fezes\",\r\n                \"data_expiracao\": \"2021-07-12\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/exam",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Medical Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/exam/105",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exam",
+								"105"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Medical Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/exam?page=0&size=3&orderBy=id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exam"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "orderBy",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

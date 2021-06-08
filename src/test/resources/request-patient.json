@@ -1,0 +1,24 @@
+{
+  "request": {
+    "nome": "Diego Fortunato",
+    "data_nascimento": "2000-12-25",
+    "sexo": "MASCULINO",
+    "nome_mae": "Carla Cristina",
+    "endereco": {
+      "rua": "Rua Itapolis",
+      "numero": 1325,
+      "cep": "01245000",
+      "bairro": "Pacaembu",
+      "cidade": "Sao Paulo",
+      "estado": "SP"
+    },
+    "contato": {
+      "telefone" : "(19)9.9477-8827",
+      "email": "diego@gmail.com"
+    },
+    "documento": {
+      "cpf": "45474132822",
+      "rg": "387963592"
+    }
+  }
+}

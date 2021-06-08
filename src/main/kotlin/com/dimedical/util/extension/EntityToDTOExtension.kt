@@ -14,7 +14,6 @@ import com.dimedical.entity.DocumentEntity
 import com.dimedical.entity.ExamEntity
 import com.dimedical.entity.MedicalRequestEntity
 import com.dimedical.entity.PatientEntity
-import com.dimedical.util.extension.EntityToDTOExtension.toDTO
 
 object EntityToDTOExtension {
 
@@ -60,9 +59,11 @@ object EntityToDTOExtension {
 
     fun MedicalRequestEntity.toDTO() = MedicalRequestDTO(
         this.id,
-        patientId = this.patient!!.id,
-        doctorId = this.doctor!!.id,
-        this.exams!!.map { examEntity -> examEntity.toDTO() }
+        null,
+        this.patient!!.toDTO(),
+        null,
+        this.doctor!!.toDTO(),
+        this.exams.map { examEntity -> examEntity.toDTO() }
     )
 
     fun ExamEntity.toDTO() = ExamDTO(

@@ -66,7 +66,7 @@ class DoctorServiceImpl(
         return doctorRepository.findByAdviceNumber(adviceNumber)
     }
 
-    private fun updateFieldsDoctor(doctorDB: DoctorEntity, doctorRequest: DoctorEntity) {
+    fun updateFieldsDoctor(doctorDB: DoctorEntity, doctorRequest: DoctorEntity) {
         doctorDB.name = doctorRequest.name
         doctorDB.adviceNumber = doctorRequest.adviceNumber
         doctorDB.adviceState = doctorRequest.adviceState

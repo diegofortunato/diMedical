@@ -34,7 +34,7 @@ class MedicalRequestController(private val medicalRequestService: MedicalRequest
         log.info("POST ${APIConstant.POST_MEDICAL_REQUEST} for new Medical Request")
 
         val response = medicalRequestService
-            .addMedicalRequest(medicalRequest.request.toEntity(), medicalRequest.request.patientId, medicalRequest.request.doctorId)
+            .addMedicalRequest(medicalRequest.request.toEntity(), medicalRequest.request.patientId!!, medicalRequest.request.doctorId!!)
 
         return ResponseEntity
             .created(URI.create(URLEncoder.encode(APIConstant.BASE_API + APIConstant.GET_MEDICAL_REQUEST, "UTF-8")))

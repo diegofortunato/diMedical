@@ -1,14 +1,27 @@
 version: "3"
 
 services:
-  postgresdb:
-    image: postgres:9.6
+  db:
+    image: 'postgres:13.1-alpine'
     network_mode: bridge
-    container_name: "postgresdb"
+    container_name: db
     ports:
       - 5432:5432
     environment:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=postgres
       - POSTGRES_DB=dimedical
-    restart: unless-stopped
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    network_mode: bridge
+    build:
+      context: .
+    container_name: app
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db

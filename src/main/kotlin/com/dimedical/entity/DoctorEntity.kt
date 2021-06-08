@@ -1,7 +1,7 @@
 package com.dimedical.entity
 
 import com.dimedical.constant.StateEnum
-import java.util.*
+import java.util.Date
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.EnumType
@@ -21,21 +21,18 @@ data class DoctorEntity(
     var id: Long,
 
     @Column(name = "doctor_name")
-    val name: String,
+    var name: String,
 
     @Column(name = "doctor_advice_number")
-    val adviceNumber: Number,
+    var adviceNumber: Number,
 
     @Enumerated(EnumType.STRING)
     @Column(name = "doctor_advice_state")
-    val adviceState: StateEnum,
+    var adviceState: StateEnum,
 
     @Column(name = "doctor_advice_type")
-    val adviceType: String,
+    var adviceType: String,
 
     @Column(name = "doctor_created_at")
-    val createdAt: Date,
-
-    @Column(name = "doctor_updated_at")
-    val updatedAt: Date
+    val createdAt: Date
 )

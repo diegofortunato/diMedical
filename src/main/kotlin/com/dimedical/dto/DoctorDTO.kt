@@ -1,11 +1,13 @@
 package com.dimedical.dto
 
 import com.dimedical.constant.StateEnum
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.NotEmpty
 
 data class DoctorDTO(
-    @JsonProperty("id")
+
+    @JsonIgnore
     var id: Long,
 
     @JsonProperty("nome")

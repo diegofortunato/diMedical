@@ -1,20 +1,21 @@
 package com.dimedical.dto
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.NotEmpty
 
 data class MedicalRequestDTO(
 
-    @JsonProperty("id")
+    @JsonIgnore
     var id: Long,
 
     @JsonProperty("paciente")
-    @NotEmpty(message = "Paciente não pode ser nulo")
-    val patient: PatientDTO,
+    @NotEmpty(message = "ID do Paciente não pode ser nulo")
+    val patientId: Long,
 
-    @JsonProperty("doutor(a)")
-    @NotEmpty(message = "Doutor(a) não pode ser nulo")
-    val doctor: DoctorDTO,
+    @JsonProperty("medico(a)")
+    @NotEmpty(message = "ID do medico(a) não pode ser nulo")
+    val doctorId: Long,
 
     @JsonProperty("exames")
     @NotEmpty(message = "Exames não pode ser nulo")

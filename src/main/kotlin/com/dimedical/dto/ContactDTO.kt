@@ -1,10 +1,12 @@
 package com.dimedical.dto
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.NotEmpty
 
 data class ContactDTO(
-    @JsonProperty("id")
+
+    @JsonIgnore
     var id: Long,
 
     @JsonProperty("telefone")

@@ -1,6 +1,6 @@
 package com.dimedical.entity
 
-import java.util.*
+import java.util.Date
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -25,11 +25,8 @@ data class ContactEntity(
     val email: String,
 
     @OneToOne(mappedBy = "contact")
-    val patient: PatientEntity,
+    val patient: PatientEntity?,
 
     @Column(name = "contact_created_at")
-    val createdAt: Date,
-
-    @Column(name = "contact_updated_at")
-    val updatedAt: Date
+    val createdAt: Date
 )

@@ -1,7 +1,7 @@
 package com.dimedical.entity
 
 import com.dimedical.constant.StateEnum
-import java.util.*
+import java.util.Date
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.EnumType
@@ -41,11 +41,8 @@ data class AddressEntity(
     val state: StateEnum,
 
     @OneToOne(mappedBy = "address")
-    val patient: PatientEntity,
+    val patient: PatientEntity?,
 
     @Column(name = "address_created_at")
-    val createdAt: Date,
-
-    @Column(name = "address_updated_at")
-    val updatedAt: Date
+    val createdAt: Date
 )

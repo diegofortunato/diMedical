@@ -1,13 +1,16 @@
 package com.dimedical.entity
 
-import java.util.*
+import java.util.Date
+import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.JoinColumn
 import javax.persistence.OneToMany
+import javax.persistence.OneToOne
 import javax.persistence.Table
 
 @Entity
@@ -19,13 +22,15 @@ data class MedicalRequestEntity(
     @Column(name = "medical_request_id")
     var id: Long,
 
-    @OneToMany
-    @JoinColumn(name = "exam_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    var patient: PatientEntity?,
+
+    @OneToOne(fetch = FetchType.LAZY)
+    var doctor: DoctorEntity?,
+
+    @OneToMany(mappedBy = "medicalRequest", fetch = FetchType.LAZY)
     val exams: List<ExamEntity>,
 
     @Column(name = "medical_request_created_at")
-    val createdAt: Date,
-
-    @Column(name = "medical_request_updated_at")
-    val updatedAt: Date
+    val createdAt: Date
 )

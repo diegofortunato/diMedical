@@ -18,17 +18,14 @@ data class DocumentEntity(
 
     @Id
     @Column(name = "document_cpf")
-    val cpf: String,
+    var cpf: String,
 
     @Column(name = "document_rg")
-    val rg: String,
+    var rg: String,
 
     @OneToOne(mappedBy = "document")
-    val patient: PatientEntity,
+    val patient: PatientEntity?,
 
     @Column(name = "document_created_at")
     val createdAt: Date,
-
-    @Column(name = "document_updated_at")
-    val updatedAt: Date
 )

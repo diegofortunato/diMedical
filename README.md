@@ -167,7 +167,7 @@ GET: /exam/{id}
 
 **Buscar todos Pedidos Médicos(Paginados):** 
 
-/exam?page=0&size=3&orderBy=id
+GET: /exam?page=0&size=3&orderBy=id
 
 ## [](https://github.com/diegofortunato/xy-inc#documeta%C3%A7%C3%A3o-)Health Check  🏥
 
@@ -177,7 +177,7 @@ Saúde da API esta disponivel aqui:  [Actuator](http://localhost:8080/actuator)
 ## [](https://github.com/diegofortunato/diMedical#documeta%C3%A7%C3%A3o-)Documetação  📝
 
 Você pode encontrar a documentação do projeto aqui: [Swagger-UI](http://localhost:8080/swagger-ui.html#/)
-                                                    [Doc]()
+                                                    [Doc](https://github.com/diegofortunato/diMedical/blob/develop/swagger.yml)
 
 ## [](https://github.com/diegofortunato/diMedical#autor-)Autor  🦸
 

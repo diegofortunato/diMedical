@@ -171,7 +171,7 @@ GET: /exam?page=0&size=3&orderBy=id
 
 ## [](https://github.com/diegofortunato/xy-inc#documeta%C3%A7%C3%A3o-)Health Check  🏥
 
-Saúde da API esta disponivel aqui:  [Actuator](http://localhost:8080/actuator)
+Saúde da API esta disponivel aqui:  [Actuator](http://localhost:8080/actuator/health)
 
 
 ## [](https://github.com/diegofortunato/diMedical#documeta%C3%A7%C3%A3o-)Documetação  📝

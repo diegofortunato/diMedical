@@ -29,7 +29,7 @@ Pronto, o projeto estara disponivel em:  `localhost:8080`
 
 ## [](https://github.com/diegofortunato/diMedical#painel--)Painel  📊
 
-Documentação e orientações do Painel para visualização dos dados cadastrados:  [Painel](https://github.com/diegofortunato/diMedical-front)
+Documentação e orientações do Painel para visualização dos dados cadastrados: <a href="https://github.com/diegofortunato/diMedical-front" target="_blank">Painel</a>
 
 
 ## [](https://github.com/diegofortunato/diMedical#teste-%EF%B8%8F)Teste  ⚙️

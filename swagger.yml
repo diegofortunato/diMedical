@@ -1,0 +1,1248 @@
+swagger: '2.0'
+info:
+  description: 'Documentation of the DiMedical project. A new way to order medical tests :)'
+  version: 1.0.0
+  title: DiMedical Documentation
+  license:
+    name: Apache License Version 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+host: 'localhost:8080'
+basePath: /
+tags:
+  - name: basic-error-controller
+    description: Basic Error Controller
+  - name: doctor-controller
+    description: Doctor Controller
+  - name: medical-request-controller
+    description: Medical Request Controller
+  - name: operation-handler
+    description: Operation Handler
+  - name: patient-controller
+    description: Patient Controller
+  - name: web-mvc-links-handler
+    description: Web Mvc Links Handler
+paths:
+  /actuator:
+    get:
+      tags:
+        - web-mvc-links-handler
+      summary: links
+      operationId: linksUsingGET
+      produces:
+        - application/vnd.spring-boot.actuator.v3+json
+        - application/json
+        - application/vnd.spring-boot.actuator.v2+json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+              additionalProperties:
+                $ref: '#/definitions/Link'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /actuator/health:
+    get:
+      tags:
+        - operation-handler
+      summary: handle
+      operationId: handleUsingGET_1
+      produces:
+        - application/vnd.spring-boot.actuator.v3+json
+        - application/json
+        - application/vnd.spring-boot.actuator.v2+json
+      parameters:
+        - in: body
+          name: body
+          description: body
+          required: false
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /actuator/health/**:
+    get:
+      tags:
+        - operation-handler
+      summary: handle
+      operationId: handleUsingGET
+      produces:
+        - application/vnd.spring-boot.actuator.v3+json
+        - application/json
+        - application/vnd.spring-boot.actuator.v2+json
+      parameters:
+        - in: body
+          name: body
+          description: body
+          required: false
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /doctor:
+    post:
+      tags:
+        - doctor-controller
+      summary: newDoctor
+      operationId: newDoctorUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: doctorRequest
+          description: doctorRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«DoctorDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«DoctorDTO»'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/doctor/{id}':
+    get:
+      tags:
+        - doctor-controller
+      summary: findDoctor
+      operationId: findDoctorUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«DoctorDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - doctor-controller
+      summary: deleteDoctor
+      operationId: deleteDoctorUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«DoctorDTO»'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+        - doctor-controller
+      summary: updateDoctor
+      operationId: updateDoctorUsingPATCH
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: doctorRequest
+          description: doctorRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«DoctorDTO»'
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«DoctorDTO»'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /error:
+    get:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingGET
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    head:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingHEAD
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    post:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    put:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingPUT
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingDELETE
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    options:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingOPTIONS
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+        - basic-error-controller
+      summary: error
+      operationId: errorUsingPATCH
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /exam:
+    get:
+      tags:
+        - medical-request-controller
+      summary: findAllMedicalRequest
+      operationId: findAllMedicalRequestUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: orderBy
+          in: query
+          description: orderBy
+          required: false
+          type: string
+          default: id
+        - name: page
+          in: query
+          description: page
+          required: false
+          type: integer
+          default: 0
+          format: int32
+        - name: size
+          in: query
+          description: size
+          required: false
+          type: integer
+          default: 10
+          format: int32
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePagination«List«MedicalRequestDTO»»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - medical-request-controller
+      summary: newMedicalRequest
+      operationId: newMedicalRequestUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: medicalRequest
+          description: medicalRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«MedicalRequestDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«MedicalRequestDTO»'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/exam/{id}':
+    get:
+      tags:
+        - medical-request-controller
+      summary: findMedicalRequest
+      operationId: findMedicalRequestUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«MedicalRequestDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /patient:
+    post:
+      tags:
+        - patient-controller
+      summary: newPatient
+      operationId: newPatientUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: patientRequest
+          description: patientRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«PatientDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PatientDTO»'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/patient/{id}':
+    get:
+      tags:
+        - patient-controller
+      summary: findPatient
+      operationId: findPatientUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PatientDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - patient-controller
+      summary: deletePatient
+      operationId: deletePatientUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PatientDTO»'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+        - patient-controller
+      summary: updatePatient
+      operationId: updatePatientUsingPATCH
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: patientRequest
+          description: patientRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«PatientDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«PatientDTO»'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+definitions:
+  AddressDTO:
+    type: object
+    required:
+      - bairro
+      - cep
+      - cidade
+      - estado
+      - numero
+      - rua
+    properties:
+      bairro:
+        type: string
+      cep:
+        type: string
+      cidade:
+        type: string
+      estado:
+        type: string
+        enum:
+          - AC
+          - AL
+          - AP
+          - AM
+          - BA
+          - CE
+          - ES
+          - GO
+          - MA
+          - MT
+          - MS
+          - MG
+          - PA
+          - PB
+          - PR
+          - PE
+          - PI
+          - RJ
+          - RN
+          - RS
+          - RO
+          - RR
+          - SC
+          - SP
+          - SE
+          - TO
+          - DF
+      numero:
+        $ref: '#/definitions/Number'
+      rua:
+        type: string
+    title: AddressDTO
+  ContactDTO:
+    type: object
+    required:
+      - email
+      - telefone
+    properties:
+      email:
+        type: string
+      telefone:
+        type: string
+    title: ContactDTO
+  DoctorDTO:
+    type: object
+    required:
+      - estado_conselho
+      - nome
+      - numero_conselho
+      - tipo_conselho
+    properties:
+      estado_conselho:
+        type: string
+        enum:
+          - AC
+          - AL
+          - AP
+          - AM
+          - BA
+          - CE
+          - ES
+          - GO
+          - MA
+          - MT
+          - MS
+          - MG
+          - PA
+          - PB
+          - PR
+          - PE
+          - PI
+          - RJ
+          - RN
+          - RS
+          - RO
+          - RR
+          - SC
+          - SP
+          - SE
+          - TO
+          - DF
+      nome:
+        type: string
+      numero_conselho:
+        $ref: '#/definitions/Number'
+      tipo_conselho:
+        type: string
+    title: DoctorDTO
+  DocumentDTO:
+    type: object
+    required:
+      - cpf
+      - rg
+    properties:
+      cpf:
+        type: string
+      rg:
+        type: string
+    title: DocumentDTO
+  ExamDTO:
+    type: object
+    required:
+      - data_expiracao
+      - nome
+    properties:
+      data_expiracao:
+        type: string
+        format: date-time
+      nome:
+        type: string
+    title: ExamDTO
+  Link:
+    type: object
+    properties:
+      href:
+        type: string
+      templated:
+        type: boolean
+    title: Link
+  'Map«string,Link»':
+    type: object
+    title: 'Map«string,Link»'
+    additionalProperties:
+      $ref: '#/definitions/Link'
+  MedicalRequestDTO:
+    type: object
+    required:
+      - exames
+    properties:
+      exames:
+        type: array
+        items:
+          $ref: '#/definitions/ExamDTO'
+      medico(a):
+        $ref: '#/definitions/DoctorDTO'
+      medico(a)_id:
+        type: integer
+        format: int64
+      paciente:
+        $ref: '#/definitions/PatientDTO'
+      paciente_id:
+        type: integer
+        format: int64
+    title: MedicalRequestDTO
+  ModelAndView:
+    type: object
+    properties:
+      empty:
+        type: boolean
+      model:
+        type: object
+      modelMap:
+        type: object
+        additionalProperties:
+          type: object
+      reference:
+        type: boolean
+      status:
+        type: string
+        enum:
+          - 100 CONTINUE
+          - 101 SWITCHING_PROTOCOLS
+          - 102 PROCESSING
+          - 103 CHECKPOINT
+          - 200 OK
+          - 201 CREATED
+          - 202 ACCEPTED
+          - 203 NON_AUTHORITATIVE_INFORMATION
+          - 204 NO_CONTENT
+          - 205 RESET_CONTENT
+          - 206 PARTIAL_CONTENT
+          - 207 MULTI_STATUS
+          - 208 ALREADY_REPORTED
+          - 226 IM_USED
+          - 300 MULTIPLE_CHOICES
+          - 301 MOVED_PERMANENTLY
+          - 302 FOUND
+          - 302 MOVED_TEMPORARILY
+          - 303 SEE_OTHER
+          - 304 NOT_MODIFIED
+          - 305 USE_PROXY
+          - 307 TEMPORARY_REDIRECT
+          - 308 PERMANENT_REDIRECT
+          - 400 BAD_REQUEST
+          - 401 UNAUTHORIZED
+          - 402 PAYMENT_REQUIRED
+          - 403 FORBIDDEN
+          - 404 NOT_FOUND
+          - 405 METHOD_NOT_ALLOWED
+          - 406 NOT_ACCEPTABLE
+          - 407 PROXY_AUTHENTICATION_REQUIRED
+          - 408 REQUEST_TIMEOUT
+          - 409 CONFLICT
+          - 410 GONE
+          - 411 LENGTH_REQUIRED
+          - 412 PRECONDITION_FAILED
+          - 413 PAYLOAD_TOO_LARGE
+          - 413 REQUEST_ENTITY_TOO_LARGE
+          - 414 URI_TOO_LONG
+          - 414 REQUEST_URI_TOO_LONG
+          - 415 UNSUPPORTED_MEDIA_TYPE
+          - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+          - 417 EXPECTATION_FAILED
+          - 418 I_AM_A_TEAPOT
+          - 419 INSUFFICIENT_SPACE_ON_RESOURCE
+          - 420 METHOD_FAILURE
+          - 421 DESTINATION_LOCKED
+          - 422 UNPROCESSABLE_ENTITY
+          - 423 LOCKED
+          - 424 FAILED_DEPENDENCY
+          - 425 TOO_EARLY
+          - 426 UPGRADE_REQUIRED
+          - 428 PRECONDITION_REQUIRED
+          - 429 TOO_MANY_REQUESTS
+          - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+          - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+          - 500 INTERNAL_SERVER_ERROR
+          - 501 NOT_IMPLEMENTED
+          - 502 BAD_GATEWAY
+          - 503 SERVICE_UNAVAILABLE
+          - 504 GATEWAY_TIMEOUT
+          - 505 HTTP_VERSION_NOT_SUPPORTED
+          - 506 VARIANT_ALSO_NEGOTIATES
+          - 507 INSUFFICIENT_STORAGE
+          - 508 LOOP_DETECTED
+          - 509 BANDWIDTH_LIMIT_EXCEEDED
+          - 510 NOT_EXTENDED
+          - 511 NETWORK_AUTHENTICATION_REQUIRED
+      view:
+        $ref: '#/definitions/View'
+      viewName:
+        type: string
+    title: ModelAndView
+  Number:
+    type: object
+    title: Number
+  PatientDTO:
+    type: object
+    required:
+      - contato
+      - data_nascimento
+      - documento
+      - endereco
+      - nome
+      - nome_mae
+      - sexo
+    properties:
+      contato:
+        $ref: '#/definitions/ContactDTO'
+      data_nascimento:
+        type: string
+        format: date-time
+      documento:
+        $ref: '#/definitions/DocumentDTO'
+      endereco:
+        $ref: '#/definitions/AddressDTO'
+      nome:
+        type: string
+      nome_mae:
+        type: string
+      sexo:
+        type: string
+        enum:
+          - MASCULINO
+          - FEMININO
+          - NAO_BINARIO
+    title: PatientDTO
+  Request«DoctorDTO»:
+    type: object
+    required:
+      - request
+    properties:
+      request:
+        $ref: '#/definitions/DoctorDTO'
+    title: Request«DoctorDTO»
+  Request«MedicalRequestDTO»:
+    type: object
+    required:
+      - request
+    properties:
+      request:
+        $ref: '#/definitions/MedicalRequestDTO'
+    title: Request«MedicalRequestDTO»
+  Request«PatientDTO»:
+    type: object
+    required:
+      - request
+    properties:
+      request:
+        $ref: '#/definitions/PatientDTO'
+    title: Request«PatientDTO»
+  ResponsePagination«List«MedicalRequestDTO»»:
+    type: object
+    required:
+      - currentPage
+      - data
+      - totalItems
+      - totalPages
+    properties:
+      currentPage:
+        type: integer
+        format: int32
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/MedicalRequestDTO'
+      totalItems:
+        type: integer
+        format: int64
+      totalPages:
+        type: integer
+        format: int32
+    title: ResponsePagination«List«MedicalRequestDTO»»
+  Response«DoctorDTO»:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: '#/definitions/DoctorDTO'
+    title: Response«DoctorDTO»
+  Response«MedicalRequestDTO»:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: '#/definitions/MedicalRequestDTO'
+    title: Response«MedicalRequestDTO»
+  Response«PatientDTO»:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: '#/definitions/PatientDTO'
+    title: Response«PatientDTO»
+  View:
+    type: object
+    properties:
+      contentType:
+        type: string
+    title: View
+  ta","totalItems","totalPages"],"properties":{"currentPage":{"type":"integer","format":"int32"},"data":{"type":"array","items":{"$ref":"#/definitions/MedicalRequestDTO"}},"totalItems":{"type":"integer","format":"int64"},"totalPages":{"type":"integer","format":"int32"}},"title":"ResponsePagination«List«MedicalRequestDTO»»"},"Response«DoctorDTO»":{"type":"object","required":["data"],"properties":{"data":{"$ref":"#/definitions/DoctorDTO"}},"title":"Response«DoctorDTO»"},"Response«MedicalRequestDTO»":{"type":"object","required":["data"],"properties":{"data":{"$ref":"#/definitions/MedicalRequestDTO"}},"title":"Response«MedicalRequestDTO»"},"Response«PatientDTO»":{"type":"object","required":["data"],"properties":{"data":{"$ref":"#/definitions/PatientDTO"}},"title":"Response«PatientDTO»"},"View":{"type":"object","properties":{"contentType":{"type":"string"}},"title":"View"}}}
+description: User Controller
+- name: Wallet
+  description: Wallet Controller
+paths:
+  /transaction:
+    post:
+      tags:
+        - Transaction
+      summary: Creation of new transaction
+      operationId: performTransactionUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: transactionRequest
+          description: transactionRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«TransactionDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«TransactionDTO»'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /user:
+    post:
+      tags:
+        - User
+      summary: Create new User
+      operationId: createUserUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: userRequest
+          description: userRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«UserDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«UserDTO»'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  '/user/{id}':
+    get:
+      tags:
+        - User
+      summary: Find exist User
+      operationId: findUserUsingGET
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«UserDTO»'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    delete:
+      tags:
+        - User
+      summary: Delete User
+      operationId: deleteUserUsingDELETE
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«UserDTO»'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+    patch:
+      tags:
+        - User
+      summary: Update User
+      operationId: updateeUserUsingPATCH
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - name: id
+          in: path
+          description: id
+          required: true
+          type: integer
+          format: int64
+        - in: body
+          name: userRequest
+          description: userRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«UserDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«UserDTO»'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+      deprecated: false
+  /wallet:
+    post:
+      tags:
+        - Wallet
+      summary: Add money to Wallet
+      operationId: addValueToWalletUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: walletRequest
+          description: walletRequest
+          required: true
+          schema:
+            $ref: '#/definitions/Request«WalletDTO»'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Response«WalletDTO»'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+definitions:
+  Request«TransactionDTO»:
+    type: object
+    required:
+      - request
+    properties:
+      request:
+        $ref: '#/definitions/TransactionDTO'
+    title: Request«TransactionDTO»
+  Request«UserDTO»:
+    type: object
+    required:
+      - request
+    properties:
+      request:
+        $ref: '#/definitions/UserDTO'
+    title: Request«UserDTO»
+  Request«WalletDTO»:
+    type: object
+    required:
+      - request
+    properties:
+      request:
+        $ref: '#/definitions/WalletDTO'
+    title: Request«WalletDTO»
+  Response«TransactionDTO»:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: '#/definitions/TransactionDTO'
+    title: Response«TransactionDTO»
+  Response«UserDTO»:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: '#/definitions/UserDTO'
+    title: Response«UserDTO»
+  Response«WalletDTO»:
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        $ref: '#/definitions/WalletDTO'
+    title: Response«WalletDTO»
+  TransactionDTO:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      value:
+        type: number
+        format: double
+      payer:
+        type: integer
+        format: int64
+      payee:
+        type: integer
+        format: int64
+    title: TransactionDTO
+  UserDTO:
+    type: object
+    required:
+      - document
+      - email
+      - fullName
+      - id
+      - password
+      - userType
+    properties:
+      document:
+        type: string
+      email:
+        type: string
+      fullName:
+        type: string
+      id:
+        type: integer
+        format: int64
+      userType:
+        type: string
+        enum:
+          - COMMOM
+          - SHOPKEEPER
+      password:
+        type: string
+    title: UserDTO

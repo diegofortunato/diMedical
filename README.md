@@ -16,7 +16,7 @@
 
 ## [](https://github.com/diegofortunato/diMedical#build--)Build  🚀
 
-Certifique que você tenha o Docker e o Git instalados em sua maquina e rode os seguintes comandos:
+Certifique que você tenha o Docker, Git e Gradle instalados em sua maquina e rode os seguintes comandos:
 
 -   Primeiro passo clone o projeto:  `git clone git@github.com:diegofortunato/diMedical.git`
 -   Entre na pasta raiz no local clonado.

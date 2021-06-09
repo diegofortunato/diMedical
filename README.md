@@ -30,6 +30,8 @@ Pronto, o projeto estara disponivel em:  `localhost:8080`
 
 ## [](https://github.com/diegofortunato/diMedical#teste-%EF%B8%8F)Teste  ⚙️
 
+O projeto possui testes unitarios no seguinte diretorio: [Testes Unitarios](https://github.com/diegofortunato/diMedical/tree/master/src/test/kotlin/com/dimedical)
+
 Uma Collection do Postman de exemplo esta disponivel aqui:  [Collection](https://github.com/diegofortunato/diMedical/blob/develop/dimedical.postman_collection)
 
 Abaixo um pouco sobre as chamadas da API:
